@@ -3,19 +3,20 @@ body {
   font-family: "Helvetica", sans-serif;
 }
 
-#top-header-bar
+/* #top-header-bar, */
+#chosen-file
 {
-    background-color: #fafafa;
+    /* background-color: #fafafa; */
     margin-bottom: 10px;
     padding: 20px;
 }
 
-#top-header-bar h1
+/* #top-header-bar h1
 {
   font-size: 36px;
   font-weight: normal;
   display: inline;
-}
+} */
 
 #top-header-bar a
 {
@@ -32,16 +33,16 @@ body {
 #uploader {
   text-align: center;
   line-height: 1;
-  font-size: 36px;
+  /* font-size: 36px; */
 }
 
-#uploader a {
+/* #uploader a {
   font-size: 20px;
-}
+} */
 
 #chosen-files {
-  margin-left: 15px;
-  font-size: 24px;
+  /* margin-left: 15px; */
+  /* font-size: 24px; */
   color: #333;
 }
 
@@ -134,10 +135,10 @@ body {
   width: 40em;
 }
 
-#paste-area-custom-config {
+/* #paste-area-custom-config {
   height: 35em;
   width: 40em;
-}
+} */
 
 .linkish:hover {
   color: blue;
