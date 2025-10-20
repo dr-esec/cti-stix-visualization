@@ -881,6 +881,7 @@ is not serving JSON, or is not running a webserver.\n\nA GitHub Gist can be crea
     }
 
     function selectedNodeClick() {
+        return; // prevent node from being explicitly displayed
       let selected = document.getElementById('selected');
       if (selected.className.indexOf('clicked') === -1) {
         selected.className += " clicked";
