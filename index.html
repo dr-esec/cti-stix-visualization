@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8"/>
-    <link href="../css/THEME_DATE-bootstrap.css" rel="stylesheet">
+    <link href="../css/cti_flatly_2024-05-07-bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./stix_visualizer/application.css" />
     <script src="./stix_visualizer/require.js" data-main="./stix_visualizer/application"></script>
   </head>
@@ -47,6 +47,11 @@
         <p>Use the mouse wheel to zoom.</p>
         <p>Click the 'Selected Node' area to expand/shrink it.</p>
         <p>Click legend items to toggle visibility of nodes of a particular STIX type.</p> -->
+        <div id="legend">
+            <table id="legend-content">
+                <caption><h5>Legend</h5></caption>
+            </table>
+        </div>
       </div>
       <div id="selected" class="sidebar">
         <h5>Selected Node</h5>
@@ -59,11 +64,11 @@
         <h6>Outgoing Edges:</h6>
         <div id="connections-outgoing"></div>
       </div>
-      <div id="legend" class="sidebar">
+      <!-- <div id="legend" class="sidebar">
         <table id="legend-content">
           <caption><h5>Legend</h5></caption>
         </table>
-      </div>
+      </div> -->
     </div>
   </body>
 </html>
