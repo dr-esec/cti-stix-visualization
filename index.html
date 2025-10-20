@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>STIX Viewer</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="./stix_visualizer/application.css" />
+    <script src="./stix_visualizer/require.js" data-main="./stix_visualizer/application"></script>
+  </head>
+
+  <body>
+    <div id="top-header-bar">
+      <h1>
+        <span id="header"></span><span id="chosen-files"></span>
+      </h1>
+    </div>
+
+    <div id="uploader">
+      <p>Drop some STIX 2.x here!</p>
+      <input type="file" id="files" name="files" /><br>
+      <p>-- OR --</p>
+      <p>Fetch some STIX 2.x from this URL!</p>
+      <input type="text" id="url" name="url" placeholder="Paste URL here" /><br>
+      <button id="fetch-url">Fetch</button>
+      <p>-- OR --</p>
+      <p>Pass it as a url parameter, like so:</p><a href="https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/oasis-open/cti-stix-visualization/master/test.json">https://oasis-open.github.io/cti-stix-visualization/?url=https://raw.githubusercontent.com/oasis-open/cti-stix-visualization/master/test.json</a>
+      <p>-- OR --</p>
+      <p>Paste some STIX 2.x here!</p>
+      <textarea id="paste-area-stix-json" name="pasted" placeholder="Copy/Paste JSON data here..."></textarea><br>
+      <button id="paste-parser">Parse</button>
+      <br />
+      <p>-- Configuration --</p>
+      <textarea id="paste-area-custom-config" name="pasted" placeholder="Copy/Paste, in JSON format, (if you want to specify this) your custom config for the graph as such: &#10;{&#10;&quot;&lt;objectType&gt;&quot;: &#10;&#9;{&#10;&#9;&#9;&quot;displayProperty&quot;: &lt;nameOfProperty&gt;, &#10;&#9;&#9;&quot;displayIcon&quot;: &lt;nameOfIconFile&gt;,&#10;&#9;&#9;&quot;embeddedRelationships&quot;: [...relationships...]&#10;&#9;&#9;&quot;timestampList&quot;: [...timestampProperties...]&#10;&#9;},&#10;&quot;userLabels&quot;:&#10;&#9;{&#10;&#9;&#9;&quot;&lt;STIX ID&gt;&quot;: &quot;a label&quot;,&#10;&#9;&#9;...&#10;&#9;},&#10;&quot;include&quot;: &lt;STIX object filter criteria&gt;,&#10;&quot;exclude&quot;: &lt;STIX object filter criteria&gt;&#10;}&#10;&#10;&quot;&lt;objectType&gt;&quot; lets you customize how the node is displayed in the graph per-type; &quot;userLabels&quot; lets you customize labels per-ID.  For type-specific customization, please note that the above properties are the only currently-supported properties, and at least 1 of them has to be specified.  ID-specific label customization will take priority over type-specific labels.&#10;&#10;Each relationship in the &quot;embeddedRelationships&quot; list is a [&quot;&lt;property path&gt;&quot;, &quot;&lt;edge label&gt;&quot;, &lt;edge direction boolean&gt;] triple.  The property path should refer to a _ref(s) property somewhere within objects of that type."></textarea>
+    </div>
+    <div id="canvas-container" class="hidden">
+      <div id="canvas-wrapper">
+        <div id="canvas"></div>
+        <div id="timelineControls">
+          <label for="timeline">Timeline</label>
+          <input type="range" id="timeline" name="timeline" min="0" max="0" step="1" disabled/>
+          <label for="timelineCheckbox">Cumulative Timeline</label>
+          <input type="checkbox" id="timelineCheckbox" name="cumulative" checked disabled/>
+        </div>
+        <p>Drag the timeline selector to display objects according to their timestamp.</p>
+        <p>Dragging anywhere will pan the viewing area.</p>
+        <p>Use the mouse wheel to zoom.</p>
+        <p>Click the 'Selected Node' area to expand/shrink it.</p>
+        <p>Click legend items to toggle visibility of nodes of a particular STIX type.</p>
+      </div>
+      <div id="selected" class="sidebar">
+        <h2>Selected Node</h2>
+        <div id="selection"></div>
+      </div>
+      <div id="connections" class="sidebar">
+        <h2>Linked Nodes</h2>
+        <h3>Incoming Edges:</h3>
+        <div id="connections-incoming"></div>
+        <h3>Outgoing Edges:</h3>
+        <div id="connections-outgoing"></div>
+      </div>
+      <div id="legend" class="sidebar">
+        <table id="legend-content">
+          <caption><h2>Legend</h2></caption>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
