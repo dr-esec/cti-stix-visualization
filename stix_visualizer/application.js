@@ -337,6 +337,7 @@ require(["domReady!", "stix2viz/stix2viz/stix2viz"], function (document, stix2vi
      * must allow cross-domain requests for this to work.
      * ******************************************************/
     function handleFetchJson() {
+      return; // disable fetch from URL
       var url = document.getElementById("url").value;
       let customConfig = document.getElementById('paste-area-custom-config').value;
       fetchJsonAjax(url, function(content) {
@@ -862,6 +863,7 @@ is not serving JSON, or is not running a webserver.\n\nA GitHub Gist can be crea
     function fetchJsonFromUrl() {
       return; // disable fetch from URL
       var url = window.location.href;
+
       // If `?` is not provided, load page normally
       if (/\?/.test(url)) {
         // Regex to see if `url` parameter has a valid url value
@@ -904,7 +906,7 @@ is not serving JSON, or is not running a webserver.\n\nA GitHub Gist can be crea
      * ******************************************************/
     document.getElementById('files').addEventListener('change', handleFileSelect, false);
     document.getElementById('paste-parser').addEventListener('click', handleTextarea, false);
-    document.getElementById('fetch-url').addEventListener('click', handleFetchJson, false);
+    // document.getElementById('fetch-url').addEventListener('click', handleFetchJson, false);
     document.getElementById('header').addEventListener('click', resetPage, false);
     uploader.addEventListener('dragover', handleDragOver, false);
     uploader.addEventListener('drop', handleFileDrop, false);
