@@ -915,5 +915,5 @@ is not serving JSON, or is not running a webserver.\n\nA GitHub Gist can be crea
     document.getElementById("timeline").addEventListener("input", sliderChangeHandler, false);
     document.getElementById("timelineCheckbox").addEventListener("change", sliderChangeHandler, false);
 
-    fetchJsonFromUrl();
+    // fetchJsonFromUrl();
 });
