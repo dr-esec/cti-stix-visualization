@@ -859,8 +859,8 @@ is not serving JSON, or is not running a webserver.\n\nA GitHub Gist can be crea
      * if `?url=` parameter is provided
      * ******************************************************/
     function fetchJsonFromUrl() {
+      return; // disable fetch from URL
       var url = window.location.href;
-
       // If `?` is not provided, load page normally
       if (/\?/.test(url)) {
         // Regex to see if `url` parameter has a valid url value
