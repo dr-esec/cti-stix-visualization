@@ -323,10 +323,12 @@ require(["domReady!", "stix2viz/stix2viz/stix2viz"], function (document, stix2vi
      * Handles content pasted to the text area.
      * ******************************************************/
     function handleTextarea() {
-      let customConfig = document.getElementById('paste-area-custom-config').value;
-      let content = document.getElementById('paste-area-stix-json').value;
-      vizStixWrapper(content, customConfig);
-      linkifyHeader();
+        let customConfig = document.getElementById('paste-area-custom-config').value;
+        let content = document.getElementById('paste-area-stix-json').value;
+        if (content !== "") { // prevent empty submit
+            vizStixWrapper(content, customConfig);
+            linkifyHeader();
+        }
     }
 
     /* ******************************************************
