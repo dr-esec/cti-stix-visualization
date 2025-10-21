@@ -824,6 +824,7 @@ require(["domReady!", "stix2viz/stix2viz/stix2viz"], function (document, stix2vi
      * Takes a URL and a callback function as input.
      * ******************************************************/
     function fetchJsonAjax(url, cfunc) {
+      return; // disable fetch from URL
       var regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i;
       if (!regex.test(url)) {
         alert("ERROR: Double check url provided");
